@@ -24,13 +24,14 @@ else
    exit 1
 fi
 
-DEST_NAME="${!BAKUPPI_TARGET_HOST}"
-DEST_BKP_DIR="${!BAKUPPI_TARGET_DIR}"
+DEST_NAME=$BACKUPPI_TARGET_HOST
+DEST_BKP_DIR=$BACKUPPI_TARGET_DIR
+
+echo $DEST_BKP_DIR
 
 HOST_NAME="$(uname -n)"
 HOST_NAME="${HOST_NAME%%.*}" # Remove network info from uname -n
 
-FOLDER_NAME="$(dirname $FOLDER)"
-FOLDER_NAME="$(basename $FOLDER_NAME)"
+FOLDER_NAME="$(basename $FOLDER)"
 
-echo rsync -av -n -e ssh --delete $FOLDER $DEST_NAME:$DEST_BKP_DIR/$HOST_NAME/$FOLDER_NAME/daily 
+rsync -av -n -e ssh --delete $FOLDER $DEST_NAME:$DEST_BKP_DIR/$HOST_NAME/$FOLDER_NAME/daily 
