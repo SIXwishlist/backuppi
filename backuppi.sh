@@ -1,5 +1,20 @@
 #!/bin/bash
 
+echo 
+
+echo "O))O))                      O))                                   "
+echo "O)   O))                    O))                                O))"
+echo "O)    O))     O))       O)) O))   O)) O))  O)) O) O))  O) O))     "
+echo "O)))O)      O))  O))  O))   O))  O))  O))  O)) O)  O)) O)  O)) O))"
+echo "O)    O))  O))   O)) O))    O))O))    O))  O)) O)   O))O)   O))O))"
+echo "O)     O)  O))   O))  O))   O))  O))  O))  O)) O)) O)) O)) O)) O))"
+echo "O))))O))     O)) O)))   O)) O))   O))   O))O)) O))     O))     O))"
+echo "                                               O))     O))        "
+
+
+
+
+
 PLATFORM='unknown'
 UNAMESTR="$(uname)"
 if [[ "$UNAMESTR" == 'Linux' ]]; then
