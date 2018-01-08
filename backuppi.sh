@@ -10,9 +10,17 @@ elif [[ "$UNAMESTR" == 'Darwin' ]]; then
     PLATFORM='macos'
 fi
 
-if [ $# -ne 1 ]; then
+if (( $# < 1 )); then
     echo $0: usage: myscript name
     exit 1
+fi
+
+DRY=""
+if (( $# >= 2 )); then
+    if [[ $2 == "--dry" ]]; then  
+        echo "Running a Dry Run"
+        DRY="-n"
+    fi
 fi
 
 if [[ "$PLATFORM" == 'macos' ]]; then
@@ -34,4 +42,10 @@ HOST_NAME="${HOST_NAME%%.*}" # Remove network info from uname -n
 
 FOLDER_NAME="$(basename $FOLDER)"
 
-rsync -av -n -e ssh --delete $FOLDER $DEST_NAME:$DEST_BKP_DIR/$HOST_NAME/$FOLDER_NAME/daily 
+if [[ "$DRY" != "" ]]; then
+    echo "Backup with the following commands"
+    echo
+    echo rsync -av -e ssh --delete $FOLDER $DEST_NAME:$DEST_BKP_DIR/$HOST_NAME/$FOLDER_NAME/daily 
+else
+    rsync -av -e ssh --delete $FOLDER $DEST_NAME:$DEST_BKP_DIR/$HOST_NAME/$FOLDER_NAME/daily 
+fi
