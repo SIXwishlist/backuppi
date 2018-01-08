@@ -1,7 +1,9 @@
 #!/bin/bash
+# Client application for Backuppi
+#
+# It drops folders into the target host in a daily snapshot. 
 
 echo 
-
 echo "O))O))                      O))                                   "
 echo "O)   O))                    O))                                O))"
 echo "O)    O))     O))       O)) O))   O)) O))  O)) O) O))  O) O))     "
@@ -10,9 +12,6 @@ echo "O)    O))  O))   O)) O))    O))O))    O))  O)) O)   O))O)   O))O))"
 echo "O)     O)  O))   O))  O))   O))  O))  O))  O)) O)) O)) O)) O)) O))"
 echo "O))))O))     O)) O)))   O)) O))   O))   O))O)) O))     O))     O))"
 echo "                                               O))     O))        "
-
-
-
 
 
 PLATFORM='unknown'
